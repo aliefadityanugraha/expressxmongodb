@@ -26,7 +26,7 @@ app.use( (req, res, next) => {
 
 app.use('/', router)
 
-app.listen(3000, (err) => {
+app.listen(3000 || process.env.APP_PORT, (err) => {
   if (err) {
     console.log(err)
   } else {
