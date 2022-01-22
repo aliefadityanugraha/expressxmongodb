@@ -7,6 +7,7 @@ const accountController = require('../controller/accountController')
 const adminController = require('../controller/adminController.js')
 const reportController = require('../controller/reportController')
 const searchCotroller = require('../controller/searchController')
+const errorController = require('../controller/errorController')
 
 const {authUser, accountAcces, adminPageAccess} = require('../middleware/authMiddleware')
 
@@ -39,5 +40,8 @@ router.get('/account/:account',authUser, accountAcces, mainController.account)
 router.put('/account/:account', authUser, accountController.updatePassword)
 router.delete('/account/:account', authUser, accountController.deleteAccount)
 router.post('/account/:account', authUser, accountController.saveDataUser)
+
+// always in last
+router.get('/*', errorController.error404)
 
 module.exports = router;
