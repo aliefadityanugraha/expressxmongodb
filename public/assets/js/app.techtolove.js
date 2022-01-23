@@ -14,7 +14,6 @@ searchInput.addEventListener('keyup',function(){
       resultSearch.forEach(e => {
 
         const element = '<li>'+ e.judul +'</li>';
-        console.log(element);
         queryResult.push(element);
 
       })

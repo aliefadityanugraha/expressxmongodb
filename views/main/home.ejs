@@ -4,7 +4,7 @@
       <div class="lg:col-span-2">
         <div class="pb-5">
           <input type="text" id="searchBlog" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">
-          <div class="result"><ul></ul></div>
+          <ul class="result"></ul>
         </div>
         <img src="<%= result[0].thumbnail_url %>" class="object-cover w-full h-64 mb-4 rounded" alt="" />
         <p class="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
@@ -25,7 +25,7 @@
             <img alt="avatar" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="object-cover w-10 h-10 rounded-full shadow-sm" />
           </a>
           <div>
-            <a href="/" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400 dark:text-gray-300">Petru Vîrtos</a>
+            <a href="/" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400 dark:text-gray-300"><%= result[0].author %></a>
             <p class="text-sm font-medium leading-4 text-gray-600 dark:text-gray-300">Author</p>
           </div>
         </div>
@@ -61,7 +61,7 @@
               <img alt="avatar" src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="object-cover w-10 h-10 rounded-full shadow-sm" />
             </a>
             <div>
-              <a href="/author" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400 dark:text-gray-300">Alex Stratulat</a>
+              <a href="/author/<%= row.author %>" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400 dark:text-gray-300"><%= row.author %></a>
               <p class="text-sm font-medium leading-4 text-gray-600 dark:text-gray-300">Author</p>
             </div>
           </div>

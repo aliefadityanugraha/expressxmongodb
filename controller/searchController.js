@@ -1,14 +1,10 @@
-const searchModel = require('../model/Admin');
+const searchModel = require('../model/Search');
 
 module.exports = {
-    search: function(req, res) {
-        var search = req.query.s;
-        searchModel.search(req.con, search, function(err, result) {
-            if (err) {
-                res.send(err)
-            } else {
-                res.send(result)
-            }
-        })
-    }
+  search: function(req, res) {
+    searchModel.search(req.con, req.query.s, (err, result) => {
+      if (err) throw err
+      res.send(result)
+    })
+  }
 }
