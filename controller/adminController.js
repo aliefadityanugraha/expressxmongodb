@@ -5,7 +5,6 @@ module.exports = {
     adminModel.lengthCollection(req.con, (err, result) => {
       res.render('admin/dashboard', {
         title: 'Dashboard',
-        user: req.session.user,
         layout: 'layouts/admin-layouts',
         data: result,
         authentication: typeof req.session.userid === 'undefined' ? false : req.session.userid,
