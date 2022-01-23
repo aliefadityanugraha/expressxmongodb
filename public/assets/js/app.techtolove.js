@@ -13,7 +13,7 @@ searchInput.addEventListener('keyup',function(){
 
       resultSearch.forEach(e => {
 
-        const element = '<li>'+ e.judul +'</li>';
+        const element = '<li class="text-gray-600 dark:text-gray-400">'+ e.judul +'</li>';
         queryResult.push(element);
 
       })
