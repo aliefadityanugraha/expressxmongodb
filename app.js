@@ -7,7 +7,6 @@ const { client } = require('./config/mongodb')
 const { sessionConf } = require('./config/sessionSet')
 
 const app = express()
-const port = 3030
 
 app.set('view engine', 'ejs')
 app.use(expressLayouts)
@@ -26,7 +25,7 @@ app.use( (req, res, next) => {
 
 app.use('/', router)
 
-app.listen(process.env.PORT || port, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err)
   } else {
