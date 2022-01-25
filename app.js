@@ -29,6 +29,6 @@ app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err)
   } else {
-    console.log(`Server listening on port http://localhost:${port}`)
+    console.log(`Server listening on port http://localhost:${process.env.PORT}`)
   }
 })
