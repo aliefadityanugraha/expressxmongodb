@@ -1,3 +1,5 @@
+'use strict';
+
 const searchModel = require('../model/Search');
 
 module.exports = {

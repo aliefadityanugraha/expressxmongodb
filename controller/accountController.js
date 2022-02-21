@@ -1,5 +1,6 @@
-const path = require('path')
-const cloudinary = require("cloudinary");
+'use strict'
+
+const cloudinary = require("../config/cloudinary"); 
 const crypto = require('crypto')
 const AccountModel = require('../model/Account')
 
@@ -38,13 +39,31 @@ module.exports = {
   },
 
   saveDataUser: function(req, res) {
-    cloudinary.uploader.upload(__dirname + req.files.image.name, (err, result) => {
+    AccountModel.saveAccountData(req.con, req.body, req.params.account, (err, result) => {
       if(err) throw err
-      console.log(result.url)
-      AccountModel.saveAccountData(req.con, req.body, req.params.account, (err, result) => {
+      res.redirect(`/account/${req.params.account}`)
+    })
+  },
+
+  profilePicture: async function(req, res) {
+    try {
+
+      const result =  await cloudinary.uploader.upload(req.file.path, {
+        width:500,
+        height:500,
+        crop: 'limit',
+        quality: 'auto'
+      })
+
+      await AccountModel.saveProfilePicture(req.con, result.url, req.params.account, (err, result) => {
         if(err) throw err
         res.redirect(`/account/${req.params.account}`)
       })
-    })
+
+    } catch(err) {
+
+      console.log(err)
+
+    }
   }
 }

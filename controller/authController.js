@@ -1,3 +1,5 @@
+'use strict';
+
 const crypto = require('crypto')
 const authModel = require('../model/Auth')
 require("dotenv").config()
@@ -33,10 +35,11 @@ module.exports = {
       data: {
         article_data: "no data"
       },
+      profile: 'https://via.placeholder.com/150',
       created_at: new Date(),
       updated_at: new Date()
     }
-   
+
     if(req.body.password === req.body.confirmPassword) {
       authModel.getAccountByEmail(req.con, req.body.email, (err, result) => {
           if(result === null) {
@@ -55,7 +58,7 @@ module.exports = {
           }
       })
     } else {
-       res.render('auth/register', {
+      res.render('auth/register', {
         message: 'Password dont match',
         layout:'layouts/auth-layouts' 
       })
@@ -67,7 +70,7 @@ module.exports = {
 
     const hashedPass = getHashedPassword(req.body.password)
 
-     authModel.getAccountByEmail(req.con, req.body.email, (err, result) => {
+    authModel.getAccountByEmail(req.con, req.body.email, (err, result) => {
       if(result === null) {
         res.render('auth/login', {
           message: 'User not Registered, please register',

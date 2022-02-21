@@ -1,0 +1,28 @@
+<div class="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <form action="/dashboard/<%= authUserAdmin %>/update/<%= data.slug %>?_method=PUT" method="post">
+      <div class="mb-6">
+        <label for="judul" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Judul</label>
+        <input type="text" id="judul" name="judul" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value="<%= data.judul %>" required>
+      </div>
+      <div class="mb-6">
+        <label for="Thumbnail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thumbnail</label>
+        <input type="text" id="Thumbnail" name="thumbnail_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value="<%= data.thumbnail_url %>" required>
+      </div>
+      <div class="mb-6">
+        <label for="Slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Slug</label>
+        <input type="text" name="slug" id="Slug" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value="<%= data.slug %>" required>
+      </div>
+      <div class="mb-6">
+        <label for="Kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kategori</label>
+        <input type="text" id="Kategori" name="rubrik" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value="<%= data.rubrik %>" required>
+      </div>
+      <!-- author value -->
+      <input type="hidden" name="author" value="<%= authUserAdmin %>">
+      <input id="x" type="hidden" name="prev_text" value="<%= data.prev_text %>" required>
+      <trix-editor input="x"></trix-editor>
+      <input id="xx" type="hidden" name="content" value="<%= data.content %>" required>
+      <trix-editor input="xx"></trix-editor>
+      <!-- trix editor -->
+      <button type="submit" class="p-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save and Publish</button>
+    </form>
+</div>

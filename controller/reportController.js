@@ -1,3 +1,5 @@
+'use strict';
+
 const ReportModel = require('../model/Report');
 
 module.exports = {

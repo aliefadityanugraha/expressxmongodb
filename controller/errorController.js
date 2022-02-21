@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   error404: function(req, res) {
     res.render('err/404', {

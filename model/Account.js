@@ -30,5 +30,14 @@ module.exports = {
         }
       }
     }, callback)
+  },
+  saveProfilePicture: function(con, profile, email, callback) {
+    con.db('myblog').collection('d_users').updateOne({
+      email:email
+    }, {
+      $set: {
+        profile:profile,
+      }
+    }, callback)
   }
 }

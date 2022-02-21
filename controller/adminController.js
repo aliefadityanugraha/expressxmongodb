@@ -1,3 +1,5 @@
+'use strict';
+
 const adminModel = require('../model/Admin');
 
 module.exports = {
